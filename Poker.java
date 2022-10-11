@@ -77,6 +77,8 @@ class Poker{
             String[] recursionCards = new String [initialCards.length-1];
             
             System.arraycopy(initialCards, 1, recursionCards, 0, initialCards.length-1);
+
+
             System.out.println(Arrays.toString(initialCards));
             System.out.println(Arrays.toString(recursionCards));
             recursionCards = discard_cards(recursionCards, cardsToDiscard);
