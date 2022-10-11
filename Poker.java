@@ -56,7 +56,6 @@ class Poker{
         List<String> listCardsToDiscard = Arrays.asList(cardsToDiscard);
         System.out.println(listCardsToDiscard);
 
-        System.out.println("ill be happy to see this somewhere");
         return initialCards;
 
 
