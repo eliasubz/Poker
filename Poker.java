@@ -1,4 +1,7 @@
 import java.util.Arrays;
+import java.util.List;
+
+
 
 class Poker{
     static String[] deck = {"cA", "cK", "cQ", "cJ", "c10", "c9", "c8", "c7", "c6", "c5", "c4", "c3", "c2",  // Clovers
@@ -49,57 +52,25 @@ class Poker{
 
     public String[] discard_cards(String[] initialCards, String[] cardsToDiscard) {
         // Write your code below
-        System.out.println(Arrays.toString(initialCards));
-        if (cardsToDiscard.length == 0){
-            System.out.println("should be zero");
-            return initialCards;
-        }
-        else if (initialCards[0].equals(cardsToDiscard[0])){
-            String[] finisher = new String [initialCards.length-1];
-            System.arraycopy(initialCards, 1, finisher, 0, initialCards.length-1);
-            String[] newCardsDisc = new String [cardsToDiscard.length-1];
-
-            System.arraycopy(cardsToDiscard, 1, newCardsDisc, 0, newCardsDisc.length);
-            System.out.println("first card was found");
-            System.out.println(Arrays.toString(finisher));
-
-            //trying to find call the next recursion if the first card is found 
-            //Problem: just itterating over the array that is left fter finding the first card eg{4,5,6} but should go someway back over {1,2,4,5,6,7}
-            //This is the way I used recursion in the else statement
-            String[] recursionCards = new String [initialCards.length-1];
-            System.arraycopy(initialCards, 1, recursionCards, 0, initialCards.length-1);
-            recursionCards = discard_cards(recursionCards, cardsToDiscard);
-
-            return recursionCards;
-        
-        }else{
-            System.out.println("else statement was called!!!");
-            String[] recursionCards = new String [initialCards.length-1];
-            
-            System.arraycopy(initialCards, 1, recursionCards, 0, initialCards.length-1);
-
-
-            System.out.println(Arrays.toString(initialCards));
-            System.out.println(Arrays.toString(recursionCards));
-            recursionCards = discard_cards(recursionCards, cardsToDiscard);
-            System.arraycopy(recursionCards, 0, initialCards, 1, recursionCards.length);
-            return initialCards;
-            //return discard_cards(recursionCards, cardsToDiscard);
-        }
+        List<String> listInitialCards = Arrays.asList(initialCards);
+        List<String> listCardsToDiscard = Arrays.asList(cardsToDiscard);
+        System.out.println(listCardsToDiscard);
+        return initialCards;
 
 
         // Write your code above
     }
-    /** 
     public void possible_hands (String[] cardsAvailable, String[] cardsOnHands) {
         // Write your code below
-
+        System.out.println("this is done on the laptop from eliasubz and in the arrallist branch");
+        System.out.println("lets see where it will be");
 
 
         // Write your code above
     }
+    /**
 
-    public void possible_hands_opponent (String[] cardsAvailable, String[] cardsOnCommunity, String[] cardsOnHands) {
+     public void possible_hands_opponent (String[] cardsAvailable, String[] cardsOnCommunity, String[] cardsOnHands) {
         // Write your code below
 
 
