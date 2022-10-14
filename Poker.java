@@ -1,3 +1,5 @@
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -17,9 +19,9 @@ class Poker{
         Poker p = new Poker();      // This statement requires knowledge about Object-Oriented Programming (more in CS2)
 
         // Example to validate your implementation of method deleteCards
-        String[] discard = {"c4", "c6"};
+        String[] discard = {"c4", "c9"};
         String[] newCards = p.discard_cards(cards, discard);
-        System.out.println(Arrays.toString(newCards));
+        System.out.println("yep this is wrong " + Arrays.toString(newCards));
         {
         // The following call must print the following combination (order of the elements inside the combination does not matter):
         //  "c2", "c3", "c5", "c6", "c7"
@@ -52,14 +54,50 @@ class Poker{
 
     public String[] discard_cards(String[] initialCards, String[] cardsToDiscard) {
         // Write your code below
-        List<String> listInitialCards = Arrays.asList(initialCards);
-        List<String> listCardsToDiscard = Arrays.asList(cardsToDiscard);
-        System.out.println(listCardsToDiscard);
+        ArrayList<String> listInitialCards = Array2ArrayList(initialCards);
+        ArrayList<String> listCardsToDiscard = Array2ArrayList(cardsToDiscard);
+        if(cardsToDiscard.length == 0){
+            return initialCards;
+        }else{
 
-        return initialCards;
+
+            for(int i = 0; i < initialCards.length; i++){
+                if (initialCards[i] == cardsToDiscard[0]) {
+                    System.out.println("s"+initialCards[i]+cardsToDiscard[0]);
+
+                    listInitialCards.remove(cardsToDiscard[0]);
+                    //initialCards = ArrayList2Array(listInitialCards);
+
+                    if (cardsToDiscard.length > 1) {
+                        System.out.println("h");
+                        listCardsToDiscard.remove(cardsToDiscard[0]);
+                        System.out.println(listCardsToDiscard);
+                        System.out.println(listInitialCards);
+                        //cardsToDiscard = ArrayList2Array(listCardsToDiscard);
+                    }
+                }if(i == initialCards.length -1){
+                    System.out.println("this happened");
+                    listCardsToDiscard.remove(cardsToDiscard[0]);
+
+                }
+                System.out.println(Arrays.toString(initialCards));
+            }
+            initialCards = ArrayList2Array(listInitialCards);
+            cardsToDiscard = ArrayList2Array(listCardsToDiscard);
+            System.out.println("final");
+            return discard_cards(initialCards, cardsToDiscard);
+        }
+
 
 
         // Write your code above
+    }
+    public static ArrayList<String> Array2ArrayList(String[] array) {
+        return new ArrayList<String>(Arrays.asList(array));
+    }
+    public static String[] ArrayList2Array(ArrayList<String> strList) {
+        String[] array = strList.toArray(new String[0]);
+        return array;
     }
     public void possible_hands (String[] cardsAvailable, String[] cardsOnHands) {
         // Write your code below
