@@ -63,20 +63,19 @@ class Poker{
 
             for(int i = 0; i < initialCards.length; i++){
                 if (initialCards[i] == cardsToDiscard[0]) {
-                    System.out.println("s"+initialCards[i]+cardsToDiscard[0]);
+                    //System.out.println("s"+initialCards[i]+cardsToDiscard[0]);
 
                     listInitialCards.remove(cardsToDiscard[0]);
                     //initialCards = ArrayList2Array(listInitialCards);
 
                     if (cardsToDiscard.length > 1) {
-                        System.out.println("h");
+
                         listCardsToDiscard.remove(cardsToDiscard[0]);
-                        System.out.println(listCardsToDiscard);
-                        System.out.println(listInitialCards);
+                        //System.out.println(listCardsToDiscard);
+                        //System.out.println(listInitialCards);
                         //cardsToDiscard = ArrayList2Array(listCardsToDiscard);
                     }
                 }if(i == initialCards.length -1){
-                    System.out.println("this happened");
                     listCardsToDiscard.remove(cardsToDiscard[0]);
 
                 }
